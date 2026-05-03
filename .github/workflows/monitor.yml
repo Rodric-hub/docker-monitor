@@ -1,0 +1,24 @@
+name: Monitor Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.13"
+
+      - name: Instalar dependencias
+        run: pip install docker
+
+      - name: Correr monitor
+        run: python monitor.py
