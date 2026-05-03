@@ -1,5 +1,6 @@
 import docker
 import datetime
+import time
 
 
 def guardar_log(mensaje):
@@ -11,11 +12,14 @@ def guardar_log(mensaje):
 cliente = docker.from_env()
 contenedor = "pruebadocker"
 
-try:
-    c = cliente.containers.get(contenedor)
-    if c.status == "running":
-        guardar_log(f"{contenedor} está corriendo OK")
-    else:
-        guardar_log(f"ALERTA: {contenedor} no está corriendo")
-except docker.errors.NotFound:
-    guardar_log(f"ALERTA: {contenedor} no existe")
+while True:
+    try:
+        c = cliente.containers.get(contenedor)
+        if c.status == "running":
+            guardar_log(f"{contenedor} está corriendo OK")
+        else:
+            guardar_log(f"ALERTA: {contenedor} no está corriendo")
+    except docker.errors.NotFound:
+        guardar_log(f"ALERTA: {contenedor} no existe")
+
+    time.sleep(60)

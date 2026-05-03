@@ -1,2 +1,2 @@
-2026-05-02 21:20:16.837456 - pruebadocker esta corriendo OK
-2026-05-02 21:51:17.913693 - pruebadocker está corriendo OK
+2026-05-03 13:46:14.107181 - pruebadocker estï¿½ corriendo OK
+2026-05-03 13:47:14.147596 - pruebadocker está corriendo OK
